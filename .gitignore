@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Environments and local configuration
+.venv/
+venv/
+.env
+
+# Local data
+data/raw/*
+data/interim/*
+data/processed/*
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+
+# Local experiment tracking
+mlruns/
+mlartifacts/
+
+# Operating system and editors
+.DS_Store
+.idea/
+.vscode/
+
