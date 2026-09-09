@@ -43,8 +43,46 @@ The final test set remains locked. These figures are model-selection results, no
 4. `04_exploratory_data_analysis.ipynb`
 5. `05_feature_engineering.ipynb`
 6. `06_baseline_model.ipynb`
+7. `07_model_comparison.ipynb`
 
-The remaining notebooks are reserved for model comparison, calibration, ranking, and customer-value analysis.
+The remaining notebooks are reserved for calibration, ranking, and customer-value analysis.
+
+## Roadmap
+
+### 1. Complete model selection
+
+- Compare logistic regression, decision trees, Random Forest, and stochastic gradient descent on the same purged temporal folds.
+- Increase model complexity incrementally and retain a model only when its PR AUC improves consistently across periods.
+- Analyze false positives and false negatives by customer feature to identify where each model fails.
+- Keep the out-of-time test period locked until the complete modeling pipeline is frozen.
+
+### 2. Select the operating threshold from business costs
+
+- Use precision when unnecessary interventions are expensive or may irritate customers.
+- Use recall when missing a valuable future churner represents the larger loss.
+- Consider F1 when false-positive and false-negative consequences are comparable.
+- Evaluate candidate thresholds with the explicit objective:
+
+```text
+TotalCost = CostFalsePositive × FalsePositives
+          + CostFalseNegative × FalseNegatives
+```
+
+- Extend the calculation with campaign cost, customer value, intervention success probability, and retained margin when those inputs become available.
+
+### 3. Convert predictions into retention decisions
+
+- Combine churn probability with customer value to create risk-value segments.
+- Assign tiered actions such as low-cost reminders, targeted offers, or proactive service according to expected value.
+- Concentrate limited retention resources on customers with both high churn risk and high expected value.
+- Use product and purchasing-pattern associations to generate product-development hypotheses, while avoiding causal claims from observational transactions alone.
+
+### 4. Validate and monitor the system
+
+- Evaluate the frozen pipeline once on the locked out-of-time test period.
+- Record predictions, interventions, costs, and customer responses so retention uplift can eventually be measured.
+- Monitor feature drift, ranking quality, calibration, contact volume, and realized business value over time.
+- Use the collected feedback to update thresholds, retrain models, and adapt retention strategies when customer behavior changes.
 
 ## Local setup
 
