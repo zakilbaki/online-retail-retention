@@ -3,3 +3,4 @@ openpyxl==3.1.5
 pyarrow==21.0.0
 matplotlib==3.9.4
 scikit-learn==1.6.1
+joblib==1.4.2

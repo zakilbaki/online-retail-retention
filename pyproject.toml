@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "retail-retention"
+version = "0.1.0"
+description = "Temporal churn-risk modeling for non-contractual online retail"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "joblib==1.4.2",
+    "matplotlib==3.9.4",
+    "openpyxl==3.1.5",
+    "pandas==2.3.3",
+    "pyarrow==21.0.0",
+    "scikit-learn==1.6.1",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
